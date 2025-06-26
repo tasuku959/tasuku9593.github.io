@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>モーダルのサンプル</title>
+  <style>
+    /* CSS：モーダルの背景 */
+    .modal {
+      display: none;  /* HTML要素を画面上に表示させないためのもの */
+      position: fixed;  /* 画面を基準に固定 */
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    /* CSS：モーダルの中身 */
+    .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 450px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    /* CSS：閉じるボタン */
+    .close {
+      float: right;
+      font-size: 24px;
+      cursor: pointer; /* マウスポインターが要素の上にいるときに表示されるマウスカーソルを設定 */
+    }
+
+    .ok{       /* 「OK」ボタン */
+      padding: 2px 24px;
+      color: rgb(255, 255, 255);
+      background-color: rgb(100, 190, 10);
+      text-decoration: none;  /* 文字の下線を消す */
+      display: inline-block;
+      opacity: 0.8;
+      border-radius: 4px;
+      font-size: 20px;
+    }
+
+    .ok:active{
+      position: relative;
+      box-shadow: none;
+      top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- モーダルを開くボタン -->
+  <button id="openModal">モーダルを開く</button>
+
+  <!-- モーダル本体 -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>  <!-- HTMLの特殊文字の一つで、「×」（かける記号・バツ印）の意味 -->
+      <h2>【注意】</h2>
+      <p>手話資料には、手話単語の表現のみが記載されています。<br>文法や場面に応じた使い方、表現の使い分けについては、<br>クラスにてご案内いたします。
+      </p>
+      <a href="Sign_language_materials.html" class="ok">OK</a>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript：動作の処理
+    const modal = document.getElementById('modal');
+    const openBtn = document.getElementById('openModal');
+    const closeBtn = document.getElementById('closeModal');
+
+    openBtn.onclick = function () {
+      modal.style.display = 'block';
+    }
+
+    closeBtn.onclick = function () {
+      modal.style.display = 'none';
+    }
+
+    window.onclick = function (event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>

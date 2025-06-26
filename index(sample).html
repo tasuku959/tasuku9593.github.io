@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>三択クイズ</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .choice {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      width: 200px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>三択クイズ</h1>
+  <p>日本の首都はどこ？</p>
+  <button class="choice" data-answer="false">大阪</button>
+  <button class="choice" data-answer="false">名古屋</button>
+  <button class="choice" data-answer="true">東京</button>
+  <div id="result"></div>
+
+  <script>
+    const choices = document.querySelectorAll('.choice');
+    const result = document.getElementById('result');
+
+    choices.forEach(choice => {
+      choice.addEventListener('click', () => {
+        const isCorrect = choice.dataset.answer === "true";
+        result.textContent = isCorrect ? "正解！🎉" : "不正解！😢";
+      });
+    });
+  </script>
+</body>
+</html>

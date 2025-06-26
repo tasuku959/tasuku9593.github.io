@@ -1,195 +1,298 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0;
-  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+  margin: 0;                                  /* 初期の余白を消すため。書くのが基本 */
+  font-family: "Hiragino Kaku Gothic ProN";   /* フォントを統一して見た目を整えるため。推奨だけど自由 */
 }
 
-a {
-  text-decoration: none;
-}
-
-.clear {
-  clear: left;
+a {        
+  text-decoration: none;   /* リンクの下線を消す */
 }
 
 .container {
-  /* max-widthを1170pxに指定してください */
-  max-width: 1170px;
-  width: 100%;
+  width: 1000px;
   padding: 0 15px;
   margin: 0 auto;
 }
 
-.top-wrapper {
-  padding: 180px 0 100px 0;
-  background-image: url(https://prog-8.com/images/html/advanced/top.png);
-  background-size: cover;
-  color: white;
-  text-align: center;
-}
-
-.top-wrapper h1 {
-  opacity: 0.7;
-  font-size: 45px;
-  letter-spacing: 5px;
-}
-
-.top-wrapper p {
-  opacity: 0.7;
-}
-
-.btn-wrapper {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.btn-wrapper p {
-  margin: 10px 0;
-}
-
-.signup {
-  background-color: #239b76;
-}
-
-.facebook {
-  background-color: #3b5998;
-  margin-right: 10px;
-}
-
-.twitter {
-  background-color: #55acee;
-}
-
-.btn {
+.btn{       /* 全ボタン */
   padding: 8px 24px;
   color: white;
   display: inline-block;
   opacity: 0.8;
   border-radius: 4px;
-  text-align: center;
+  font-size: 20px;
 }
 
-.btn:hover {
-  opacity: 1;
+.btn:active{
+  position: relative;
+  box-shadow: none;
+  top: 5px;
 }
 
-.fa {
-  margin-right: 5px;
-}
 
+
+
+
+
+
+/* ヘッダー */
 header {
   height: 65px;
   width: 100%;
   background-color: rgba(34, 49, 52, 0.9);
-  position :fixed;
-  top: 0;
-  z-index: 10;
+  position: fixed;  /* 要素を画面上の指定した位置に固定 */
+  top: 0px;
+  z-index: 10;  /* 要素の重なりの順序を指定 値が大きいほど上に表示される */
 }
 
-.logo {
-  width: 124px;
-  margin-top: 20px;
+.logo {    /* JSLSlロゴ */
+  width: 100px;
+  margin-top: 0px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.header-left {
+.logo:hover{    /* 画像にマウスを乗せると起こる変化 */
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+.header-left{   /* トップページに戻るボタン */
   float: left;
 }
 
-.header-right {
-  float: right;
-  margin-right: -25px;
+.back_button_wrap {    /* ツールチップ */
+  position: relative;
+  display: inline-block;
 }
 
-.header-right a {
+.tooltip {      /* 「トップページへ戻る」ボタン */
+  visibility: hidden;
+  width: 120px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  bottom: -75%; /* ボタンの上に表示 */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 9999;
+}
+
+.back_button_wrap:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+.header-right1{    /* 次回のクラスのお知らせ */
+  float: right;
+  display: flex;
+  margin-left: 30px;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.header-right1:hover{
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+.header-right1 a{
   line-height: 65px;
   padding: 0 25px;
   color: white;
   display: block;
-  float: left;
-  transition: all 0.5s;
 }
 
-.header-right a:hover {
+
+.header-right2{    /* クイズ */
+  float: right;
+  display: flex;
+  margin-left: 30px;
   background-color: rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.lesson-wrapper {
+.header-right2:hover{
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+.header-right2 a{
+  line-height: 65px;
+  padding: 0 25px;
+  color: white;
+  display: block;
+}
+
+
+.header-right3{    /* お問合せ */
+  float: right;
+  display: flex;
+  margin-left: 30px;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.header-right3:hover{
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+.header-right3 a{
+  line-height: 65px;
+  padding: 0 25px;
+  color: white;
+  display: block;
+}
+
+
+
+
+
+
+
+
+/* トップ部分 */
+.top-wrapper{
+  padding: 180px 0 100px 0;
+  background-image: url(IMG_68732.JPG);
+  background-size: cover;
+  background-position: center bottom;
+  height: 600px;
+  color: white;
+  text-align: center;
+}
+
+.top-wrapper h1{
+  opacity: 0.7;
+  font-size: 100px;
+  letter-spacing: 50px;
+  line-height: 100px;  /* 文字の縦方向の位置（高さ方向） */
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+/* レッスン一覧部分 */
+.lesson-wrapper{
+  height: 550px;
   padding-bottom: 80px;
-  padding-left: 5%;
-  padding-right: 5%;
   background-color: #f7f7f7;
   text-align: center;
 }
 
-.heading {
-  padding-top: 80px;
-  padding-bottom: 50px;
+.lesson_heading{     /* 日本手話を学ぼう！！ */
+  padding-top: 60px;
+  padding-bottom: 30px;
   color: #5f5d60;
+  font-size: 50px;
 }
 
-.heading h2 {
-  font-weight: normal;
+.img2{    /* 「クラス一覧」「手話資料」の画像 */
+  height: 220px;
+  width: 50%;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.lesson {
+.img2:hover{
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+.class_list{
+  background-color: #4874ec;
+  box-shadow: 0 5px #110d5f;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.class_list:hover{
+  background-color: #7292ec;
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+.Materials{
+  background-color: #de75e8;
+  box-shadow: 0 5px #490a3a;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.Materials:hover{
+  background-color: #e394ea;
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+.lesson{
   float: left;
-  width: 25%;
+  width: 50%;
 }
 
-.lesson-icon {
-  position: relative;
-}
-
-.lesson-icon p {
-  position: absolute;
-  top: 44%;
-  width: 100%;
-  color: white;
-}
-
-.text-contents {
+.txt-contents{
   width: 80%;
   display: inline-block;
-  margin-top: 15px;
-  font-size: 13px;
+  margin-top: 20px;
+  font-size: 20px;
   color: #b3aeb5;
 }
 
-.heading h3 {
-  font-weight: normal;
-}
 
-.message-wrapper {
+
+
+
+
+
+
+
+/* メッセージ部分 */
+.message-wrapper{
   border-bottom: 1px solid #eee;
   padding-bottom: 80px;
   text-align: center;
 }
 
-.message {
-  padding: 15px 40px;
-  background-color: #5dca88;
-  box-shadow: 0 7px #1a7940;
+.heading{
+  font-size: 25px;
 }
 
-.message:active {
-  position: relative;
-  top: 7px;
-  box-shadow: none;
+.message{
+  background-color: #2dde6e;
+  box-shadow: 0 5px #084515;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-footer img {
-  width: 125px;
+.message:hover{
+  background-color: #5ae28c;
+  transform: scale(1.1);
+  opacity: 0.7;
 }
 
-footer p {
+
+
+
+/* フッター 🔨*/
+footer{
+  padding-top: 15px;
+}
+
+footer img{
+  width: 100px;
+}
+
+footer p{
   color: #b3aeb5;
   font-size: 12px;
-}
-
-footer {
-  padding-top: 30px;
-  padding-bottom: 20px;
 }
